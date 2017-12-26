@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>02 CSS-JS Clock | Javascript30</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+  </head>
+  <body>
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+    <style>
+      html {
+        background: #018DED;
+        font-family: 'Bungee', sans-serif;
+        text-align: center;
+        font-size: 2.5em;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .clock-face {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <!-- Javascript -->
+    <script>
+      const hourHand = document.querySelector('.hour-hand')
+      const minHand = document.querySelector('.min-hand')
+      const secondHand = document.querySelector('.second-hand')
+
+      function seconds() {
+        const now = new Date()
+        const seconds = now.getSeconds()
+        secondHand.innerHTML = `: ${seconds}`
+      }
+      setInterval(seconds, 1000)
+
+      function minutes() {
+        const now = new Date()
+        const minutes = now.getMinutes()
+        minHand.innerHTML = `: ${minutes}`
+      }
+      setInterval(minutes, 1000)
+
+      function hours() {
+        const now = new Date()
+        const hours = now.getHours()
+        hourHand.innerHTML = `${hours}`
+      }
+      setInterval(hours, 1000)
+    </script>
+  </body>
+</html>
